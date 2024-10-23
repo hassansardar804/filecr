@@ -6,19 +6,9 @@ import {
   FaCloudDownloadAlt,
   FaCrown,
 } from "react-icons/fa";
+// import DownloadCard from './DownloadCard'; // Import the DownloadCard component
 
 const softwareData = [
-  {
-    name: "Skylum Luminar Neo 1.21.1.13959",
-    description: "Creative image editor to bring your ideas to life",
-    category: "Graphics & Design",
-    os: "Windows",
-    downloads: 134317,
-    rating: 4,
-    size: "3.0GB",
-    icon: "https://example.com/skylum-icon.png",
-    preActivated: false,
-  },
   {
     name: "Microsoft Office 2021 Professional Plus",
     description: "32-bit/64-bit - Direct + Torrent Magnet",
@@ -91,18 +81,21 @@ const RatingStars = ({ rating }) => (
 );
 
 const SoftwareItem = ({ software }) => (
-  <div className="flex items-center bg-white p-4 rounded-lg shadow">
+  <div className="flex items-center w-[50rem] bg-white p-4 ">
     <img src={software.icon} alt={software.name} className="w-12 h-12 mr-4" />
-    <div className="flex-grow">
+    <div className="flex-grow flex">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">{software.name}</h2>
         <span className="text-gray-600 font-bold">{software.size}</span>
       </div>
       <p className="text-sm text-gray-600">{software.description}</p>
-      <div className="flex items-center text-sm text-gray-500 mt-1">
+      <div className="flex items-center text-sm text-[#00856F] mt-1">
         {`${software.category} `}
-        <FaWindows className="inline mr-1" /> {software.os} 
-        <FaCloudDownloadAlt className="inline mr-1" /> {software.downloads.toLocaleString()}
+      </div>
+      <div>
+        <FaWindows className="inline mr-1" /> {software.os}
+        <FaCloudDownloadAlt className="inline mr-1" />{" "}
+        {software.downloads.toLocaleString()}
       </div>
     </div>
     <div className="flex flex-col items-end ml-4">
@@ -119,6 +112,7 @@ const SoftwareItem = ({ software }) => (
 const SoftwareList = () => (
   <div className="space-y-4">
     <WindowHeader />
+    {/* <DownloadCard /> Add the DownloadCard component here */}
     {softwareData.map((software, index) => (
       <SoftwareItem key={index} software={software} />
     ))}
