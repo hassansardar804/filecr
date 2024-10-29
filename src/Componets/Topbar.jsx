@@ -6,6 +6,7 @@ import logo from "../assets/logo.svg";
 
 const TopBar = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -20,7 +21,11 @@ const TopBar = () => {
       <div className="flex items-center px-8 py-3 justify-between bg-white p-2 shadow-sm">
         <div className="flex items-center gap-7">
           <div className="p-2 rounded">
-            <img src={logo} className="h-9 w-9 bg-[#00856F] px-1 py-2  rounded-md" alt="Logo" />
+            <img
+              src={logo}
+              className="h-9 w-9 bg-[#00856F] px-1 py-2  rounded-md"
+              alt="Logo"
+            />
           </div>
           <div className="relative flex-grow max-w-2xl rounded-md">
             <button className="absolute left-0 w-10 flex justify-center h-full top-1/2 transform -translate-y-1/2 bg-[#00856F] text-white rounded-l pt-2.5">
@@ -48,6 +53,7 @@ const TopBar = () => {
             >
               <FcGoogle className="h-5 w-5" />
               <span>Add to Chrome</span>
+
               <div
                 className={`absolute top-12 right-0 w-full h-full bg-[#1B272A] opacity-0 transition-opacity duration-300 ${
                   isHovered ? "opacity-100" : ""

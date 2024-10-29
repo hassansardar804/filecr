@@ -6,29 +6,29 @@ import {
   FaCloudDownloadAlt,
   FaCrown,
 } from "react-icons/fa";
-// import DownloadCard from './DownloadCard'; // Import the DownloadCard component
+import logo from "../assets/logo.svg";
 
 const softwareData = [
   {
-    name: "Microsoft Office 2021 Professional Plus",
-    description: "32-bit/64-bit - Direct + Torrent Magnet",
+    name: "Autodesk",
+    description: "Built for Building Information Modeling",
     category: "Office & PDF",
     os: "Windows",
     downloads: 1331388,
     rating: 4,
     size: "5.93GB",
-    icon: "https://example.com/office-2021-icon.png",
+    icon: logo,
     preActivated: false,
   },
   {
-    name: "Windows 11 Pro with MS Office 2021 Pro Plus",
-    description: "22H2 (No TPM) Multilingual Preactivated ISO",
+    name: "Steinberg",
+    description: "Most powerful music creation software package",
     category: "Operating System",
     os: "Windows",
     downloads: 293299,
     rating: 4,
     size: "7.63GB",
-    icon: "https://example.com/windows-11-icon.png",
+    icon: logo,
     preActivated: true,
   },
   {
@@ -39,7 +39,7 @@ const softwareData = [
     downloads: 563169,
     rating: 4,
     size: "7.88GB",
-    icon: "https://example.com/office-2016-icon.png",
+    icon: logo,
     preActivated: false,
   },
   {
@@ -50,7 +50,7 @@ const softwareData = [
     downloads: 94198,
     rating: 4.5,
     size: "748MB",
-    icon: "https://example.com/macrium-icon.png",
+    icon: logo,
     preActivated: false,
   },
 ];
@@ -81,21 +81,28 @@ const RatingStars = ({ rating }) => (
 );
 
 const SoftwareItem = ({ software }) => (
-  <div className="flex items-center w-[50rem] bg-white p-4 ">
-    <img src={software.icon} alt={software.name} className="w-12 h-12 mr-4" />
-    <div className="flex-grow flex">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">{software.name}</h2>
-        <span className="text-gray-600 font-bold">{software.size}</span>
+  <div className="flex w-[50rem] bg-white p-4">
+    <div className="mr-3 text-2 xl">
+      <img
+        src={software.icon}
+        className="h-14 w-14 rounded-md bg-green-300"
+        alt={software.name}
+      />
+    </div>
+    <div className="flex-grow flex ">
+      <div className="">
+        <h2 className="text-md font-semibold">{software.name}</h2>
+        <p className="text-sm text-gray-600">{software.description}</p>
+        <div className="flex items-center text-sm text-[#00856F] mt-1">
+          {software.category}
+        </div>
       </div>
-      <p className="text-sm text-gray-600">{software.description}</p>
-      <div className="flex items-center text-sm text-[#00856F] mt-1">
-        {`${software.category} `}
-      </div>
-      <div>
-        <FaWindows className="inline mr-1" /> {software.os}
-        <FaCloudDownloadAlt className="inline mr-1" />{" "}
-        {software.downloads.toLocaleString()}
+      <div className="flex mt-2 h-14 ">
+        <div className=" border-s-2   ms-20">
+          <FaWindows className="inline mt-4 mr-1  " /> {software.os}
+          <FaCloudDownloadAlt className="inline ml-2 mt-4  mr-1" />
+          {software.downloads.toLocaleString()}
+        </div>
       </div>
     </div>
     <div className="flex flex-col items-end ml-4">
@@ -112,7 +119,6 @@ const SoftwareItem = ({ software }) => (
 const SoftwareList = () => (
   <div className="space-y-4">
     <WindowHeader />
-    {/* <DownloadCard /> Add the DownloadCard component here */}
     {softwareData.map((software, index) => (
       <SoftwareItem key={index} software={software} />
     ))}
