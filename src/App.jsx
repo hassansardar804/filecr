@@ -1,26 +1,20 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
-import Home from './Page/Home'
-import Navbar from './Componets/Navbar'
-import Window from './Page/SoftwareList'
+import "./App.css";
+import Home from "./Page/Home";
+import Navbar from "./Componets/SoftwareList";
+import Window from "./Componets/SoftwareList";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-     <>
-      <Home/>
-     
-      <Navbar/>
-      <div className='px-7'>
+    <>
+      <Home />
 
-      <Window />
-      </div>
-
-   
-     </>
-  )
+      <Navbar />
+    </>
+  );
 }
 
-export default App
+export default App;

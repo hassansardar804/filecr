@@ -6,7 +6,7 @@ import {
   FaCloudDownloadAlt,
   FaCrown,
 } from "react-icons/fa";
-import logo from "../assets/logo.svg";
+import logo from "../../src/assets/logo.svg";
 
 const softwareData = [
   {
