@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  FaStar,
-  FaStarHalf,
-  FaWindows,
-  FaCloudDownloadAlt,
-  FaCrown,
-} from "react-icons/fa";
-import logo from "../../src/assets/logo.svg";
+import { FaStar, FaWindows, FaCloudDownloadAlt } from "react-icons/fa";
+import logo from "../assets/tiktok-icon.png";
 
 const softwareData = [
   {
@@ -18,7 +12,9 @@ const softwareData = [
     rating: 4,
     size: "5.93GB",
     icon: logo,
-    preActivated: false,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
   },
   {
     name: "Steinberg",
@@ -28,8 +24,8 @@ const softwareData = [
     downloads: 293299,
     rating: 4,
     size: "7.63GB",
+    rep: "Reputation",
     icon: logo,
-    preActivated: true,
   },
   {
     name: "Microsoft Office 2016 Professional Plus",
@@ -39,8 +35,9 @@ const softwareData = [
     downloads: 563169,
     rating: 4,
     size: "7.88GB",
+    rep: "Reputation",
     icon: logo,
-    preActivated: false,
+    tag: "latest",
   },
   {
     name: "Macrium Reflect 10.0.8324",
@@ -49,80 +46,97 @@ const softwareData = [
     os: "Windows",
     downloads: 94198,
     rating: 4.5,
+    rep: "Reputation",
     size: "748MB",
     icon: logo,
-    preActivated: false,
+  },
+  {
+    name: "Capcut 5.0.0.1883",
+    description: "A simple, efficient video editing platform",
+    category: "Video Editors",
+    os: "Windows",
+    downloads: 322917,
+    rating: 4.5,
+    rep: "Reputation",
+    size: "595MB",
+    icon: logo,
   },
 ];
 
-const WindowHeader = () => (
-  <div className="flex w-[50rem] items-center justify-between bg-white p-4 border-l-8 border-[#00856F]">
-    <h2 className="text-xl font-semibold">Windows</h2>
-    <button className="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
-      View All
-    </button>
-  </div>
-);
+const SoftwareComponent = () => {
+  const RatingStars = ({ rating }) => {
+    return (
+      <div className="flex">
+        {[...Array(5)].map((_, index) => (
+          <span
+            key={index}
+            className={index < rating ? "text-yellow-400" : "text-gray-300"}
+          >
+            <FaStar />
+          </span>
+        ))}
+      </div>
+    );
+  };
 
-const RatingStars = ({ rating }) => (
-  <div className="flex">
-    {[...Array(5)].map((_, index) => (
-      <span key={index}>
-        {index < Math.floor(rating) ? (
-          <FaStar className="text-yellow-400" />
-        ) : index === Math.floor(rating) && rating % 1 ? (
-          <FaStarHalf className="text-yellow-400" />
-        ) : (
-          <FaStar className="text-gray-300" />
-        )}
-      </span>
-    ))}
-  </div>
-);
-
-const SoftwareItem = ({ software }) => (
-  <div className="flex w-[50rem] bg-white p-4">
-    <div className="mr-3 text-2 xl">
-      <img
-        src={software.icon}
-        className="h-14 w-14 rounded-md bg-green-300"
-        alt={software.name}
-      />
+  const WindowHeader = () => (
+    <div className="flex w-[66%] mx-auto sm:mx-0 items-center justify-between mt-9 mb-9 bg-white p-4 border-l-8 border-[#00856F]">
+      <h2 className="text-xl font-semibold">Windows</h2>
+      <button className="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
+        View All
+      </button>
     </div>
-    <div className="flex-grow flex ">
-      <div className="">
-        <h2 className="text-md font-semibold">{software.name}</h2>
-        <p className="text-sm text-gray-600">{software.description}</p>
-        <div className="flex items-center text-sm text-[#00856F] mt-1">
-          {software.category}
+  );
+
+  const SoftwareItem = ({ software }) => (
+    <div className="flex w-[66%] bg-white p-4">
+      <div className="mr-3 text-2xl relative">
+        <img src={software.icon} className="h-14 w-14 rounded-md" alt="" />
+        <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
+          {software.tag && <p>{software.latest}</p>}
         </div>
       </div>
-      <div className="flex mt-2 h-14 ">
-        <div className=" border-s-2   ms-20">
-          <FaWindows className="inline mt-4 mr-1  " /> {software.os}
-          <FaCloudDownloadAlt className="inline ml-2 mt-4  mr-1" />
-          {software.downloads.toLocaleString()}
+      <div className="flex flex-grow">
+        <div>
+          <h3 className="text-[#2B373A]">{software.name}</h3>
+          <p className="text-[13px]">{software.description}</p>
+          <p className="text-[#00856F] text-[12px] font-semibold">
+            {software.category}
+          </p>
         </div>
       </div>
-    </div>
-    <div className="flex flex-col items-end ml-4">
-      <RatingStars rating={software.rating} />
-      {software.preActivated && (
-        <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mt-1 flex items-center">
-          <FaCrown className="mr-1" /> Pre-Activated
-        </span>
-      )}
-    </div>
-  </div>
-);
 
-const SoftwareList = () => (
-  <div className="space-y-4">
-    <WindowHeader />
-    {softwareData.map((software, index) => (
-      <SoftwareItem key={index} software={software} />
-    ))}
-  </div>
-);
+      <div className="border-s px-5 py-2">
+        <div className="flex items-center gap-2">
+          <FaWindows className="text-[#02ADEC] text-2xl" /> {software.os}
+        </div>
+        <div className="flex gap-1 items-center mt-2 text-[13px]">
+          <FaCloudDownloadAlt className="text-[#716d6d] items-center" />
+          {software.downloads}
+        </div>
+      </div>
 
-export default SoftwareList;
+      <div className="border-s px-5 py-2">
+        <div className="flex items-center gap-2">{software.rep}</div>
+        <div className="flex items-center mt-2 text-[13px]">
+          <RatingStars rating={software.rating} />
+        </div>
+      </div>
+
+      <div className="border-s text-center text-xl font-semibold px-5 py-4">
+        {software.size}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="space-y-4">
+      <WindowHeader />
+      {softwareData.map((software, index) => (
+        <SoftwareItem key={index} software={software} />
+      ))}
+    </div>
+  );
+};
+
+export default SoftwareComponent;
