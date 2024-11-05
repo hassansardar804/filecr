@@ -1,8 +1,10 @@
 import React from "react";
 import { FaStar, FaWindows, FaCloudDownloadAlt } from "react-icons/fa";
 import logo from "../assets/tiktok-icon.png";
+
 import gta from "../assets/gta5.png";
-import wonder from '../assets/wonderrobe.jpeg'
+import wonder from "../assets/wonderrobe.jpeg";
+import { GrApple } from "react-icons/gr";
 const softwareData = [
   {
     name: "Autodesk",
@@ -82,7 +84,7 @@ const MacData = [
     name: "Steinberg",
     description: "Most powerful music creation software package",
     category: "Operating System",
-    os: "Windows",
+    os: "Mac",
     downloads: 293299,
     rating: 4,
     size: "7.63GB",
@@ -93,7 +95,7 @@ const MacData = [
     name: "Microsoft Office 2016 Professional Plus",
     description: "32-bit/64-bit - Direct + Torrent Magnet",
     category: "Office & PDF",
-    os: "Windows",
+    os: "Mac",
     downloads: 563169,
     rating: 4,
     size: "7.88GB",
@@ -105,7 +107,7 @@ const MacData = [
     name: "Macrium Reflect 10.0.8324",
     description: "Workstation / Server / Server Plus Edition + WinPE ISO",
     category: "Backup & Recovery",
-    os: "Windows",
+    os: "Mac",
     downloads: 94198,
     rating: 4.5,
     rep: "Reputation",
@@ -116,12 +118,51 @@ const MacData = [
     name: "Capcut 5.0.0.1883",
     description: "A simple, efficient video editing platform",
     category: "Video Editors",
-    os: "Windows",
+    os: "Mac",
     downloads: 322917,
     rating: 4.5,
     rep: "Reputation",
     size: "595MB",
     icon: logo,
+  },
+  {
+    name: "GTA V",
+    description: "Grand Theft Auto V",
+    category: "PC Games",
+    os: "Mac",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "74.0GB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Fortnite",
+    description: "Fortnite",
+    category: "PC Games",
+    os: "Mac",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "74.0GB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Fortnite",
+    description: "Fortnite",
+    category: "PC Games",
+    os: "Mac",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "74.0GB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
   },
 ];
 
@@ -180,6 +221,113 @@ const games = [
     category: "PC Games",
     size: "2.1GB",
     icon: gta,
+  },
+];
+
+const anriodes = [
+  {
+    name: "TikTok",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Whattsapp",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Facebook",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Instagram",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Twitter",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "YouTube",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Discord",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
+  },
+  {
+    name: "Snapchat",
+    description: "Download videos and music easier from YouTube",
+    category: "Entertainment",
+    os: "Android",
+    downloads: 1234567,
+    rating: 4.7,
+    size: "123MB",
+    icon: gta,
+    latest: "latest",
+    rep: "Reputation",
+    tag: "latest",
   },
 ];
 
@@ -271,49 +419,64 @@ const SoftwareComponent = () => {
     </div>
   );
 
-  const MacItems = ({ Mac }) => (
+  const MacItems = ({ mac }) => (
     <div className="flex gap-8">
       <div className="flex w-full mt-5 bg-white p-4">
         <div className="mr-3 text-2xl relative">
-          <img src={software.icon} className="h-14 w-14 rounded-md" alt="" />
+          <img src={mac.icon} className="h-14 w-14 rounded-md" alt="" />
           <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
-            {software.tag && <p>{software.latest}</p>}
+            {mac.tag && <p>{mac.latest}</p>}
           </div>
         </div>
         <div className="flex flex-grow">
           <div>
-            <h3 className="text-[#2B373A]">{software.name}</h3>
-            <p className="text-[13px]">{software.description}</p>
+            <h3 className="text-[#2B373A]">{mac.name}</h3>
+            <p className="text-[13px]">{mac.description}</p>
             <p className="text-[#00856F] text-[12px] font-semibold">
-              {software.category}
+              {mac.category}
             </p>
           </div>
         </div>
 
-        <div className="border-s px-5 py-2">
+        <div className="border-s px-10 py-z">
           <div className="flex items-center gap-2">
-            <FaWindows className="text-[#02ADEC] text-2xl" /> {software.os}
+            <GrApple className="text-[#02ADEC] text-2xl" /> {mac.os}
           </div>
           <div className="flex gap-1 items-center mt-2 text-[13px]">
             <FaCloudDownloadAlt className="text-[#716d6d] items-center" />
-            {software.downloads}
+            {mac.downloads}
           </div>
         </div>
 
         <div className="border-s px-5 py-2">
-          <div className="flex items-center gap-2">{software.rep}</div>
+          <div className="flex items-center gap-2">{mac.rep}</div>
           <div className="flex items-center mt-2 text-[13px]">
-            <RatingStars rating={software.rating} />
+            <RatingStars rating={mac.rating} />
           </div>
         </div>
 
         <div className="border-s text-center text-xl font-semibold px-5 py-4">
-          {software.size}
+          {mac.size}
         </div>
       </div>
     </div>
   );
 
+  const android =({ android}) =>{
+    return (
+      <div className="flex my-9 w-full mx-auto sm:mx-0 items-center justify-between bg-white p-4 border-l-8 border-[#00856F]">
+        <h2 className="text-xl font-semibold">Android</h2>
+        <button className="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
+          View All
+        </button>
+      </div>
+    );
+
+
+  }
+  const AndroidItems = ({ android }) => (
+    <div className="flex gap-8"></div>
+  )
   return (
     <div className="space-y-4">
       <div className="flex gap-5">
@@ -322,7 +485,11 @@ const SoftwareComponent = () => {
           {softwareData.map((software, index) => (
             <SoftwareItem key={index} software={software} />
           ))}
+
           <Mac />
+          {MacData.map((mac, index) => (
+            <MacItems key={index} mac={mac} />
+          ))}
         </div>
 
         <div className="h-30 bg-white w-[30%] p-6">
