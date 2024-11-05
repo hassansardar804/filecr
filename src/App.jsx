@@ -15,7 +15,7 @@ function App() {
 
       {/* <Navbar /> */}
       <Navbar />
-      <div className="ms-7">
+      <div className="mx-5">
         <Window />
       </div>
     </>
