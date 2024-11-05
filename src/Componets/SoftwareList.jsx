@@ -262,7 +262,6 @@ const anriodes = [
     icon: gta,
     latest: "latest",
     rep: "Reputation",
-    tag: "latest",
   },
   {
     name: "Instagram",
@@ -275,7 +274,6 @@ const anriodes = [
     icon: gta,
     latest: "latest",
     rep: "Reputation",
-    tag: "latest",
   },
   {
     name: "Twitter",
@@ -288,7 +286,6 @@ const anriodes = [
     icon: gta,
     latest: "latest",
     rep: "Reputation",
-    tag: "latest",
   },
   {
     name: "YouTube",
@@ -327,7 +324,6 @@ const anriodes = [
     icon: gta,
     latest: "latest",
     rep: "Reputation",
-    tag: "latest",
   },
 ];
 
@@ -400,7 +396,7 @@ const SoftwareComponent = () => {
   );
 
   const GameItem = ({ game }) => (
-    <div className="flex items-center gap-4 mt-4 ">
+    <div className="flex items-center  gap-4 mt-4 ">
       <img src={game.icon} alt={game.name} className="w-14 h-14 rounded-md" />
       <div>
         <h3 className="text-[#2B373A] font-semibold">{game.name}</h3>
@@ -462,7 +458,7 @@ const SoftwareComponent = () => {
     </div>
   );
 
-  const android =({ android}) =>{
+  const android = () => {
     return (
       <div className="flex my-9 w-full mx-auto sm:mx-0 items-center justify-between bg-white p-4 border-l-8 border-[#00856F]">
         <h2 className="text-xl font-semibold">Android</h2>
@@ -471,12 +467,41 @@ const SoftwareComponent = () => {
         </button>
       </div>
     );
+  };
 
-
-  }
   const AndroidItems = ({ android }) => (
-    <div className="flex gap-8"></div>
-  )
+    <div className="flex gap-8">
+      <div className="flex w-full mt-5 bg-white p-4">
+        <div className="mr-3 text-2xl relative">
+          <img src={android.icon} className="h-14 w-14 rounded-md" alt="" />
+          <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
+            {android.tag && <p>{android.latest}</p>}
+          </div>
+        </div>
+        <div className="flex flex-grow">
+          <div>
+            <h3 className="text-[#2B373A]">{android.name}</h3>
+            <p className="text-[13px]">{android.description}</p>
+            <p className="text-[#00856F] text-[12px] font-semibold">
+              {android.category}
+            </p>
+          </div>
+        </div>
+
+        <div className="border-s px-5 py-2">
+          <div className="flex items-center gap-2">{android.rep}</div>
+          <div className="flex items-center mt-2 text-[13px]">
+            <RatingStars rating={android.rating} />
+          </div>
+        </div>
+
+        <div className="border-s text-center text-xl font-semibold px-5 py-4">
+          {android.size}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-4">
       <div className="flex gap-5">
@@ -489,6 +514,11 @@ const SoftwareComponent = () => {
           <Mac />
           {MacData.map((mac, index) => (
             <MacItems key={index} mac={mac} />
+          ))}
+
+          {android()}
+          {anriodes.map((android, index) => (
+            <AndroidItems key={index} android={android} />
           ))}
         </div>
 
