@@ -5,6 +5,7 @@ import Home from "./Page/Home";
 // import Navbar from "./Componets/SoftwareList";
 import Window from "./Componets/SoftwareList";
 import Navbar from "./Componets/Navbar";
+import Footer from "./Componets/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,9 +16,11 @@ function App() {
 
       {/* <Navbar /> */}
       <Navbar />
-      <div className="mx-5">
+      <div className="mx-5 ">
+
         <Window />
       </div>
+      <Footer />
     </>
   );
 }

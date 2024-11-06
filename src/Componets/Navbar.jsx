@@ -26,7 +26,7 @@ const Navbar = ({ isOpen }) => {
       {navItems.map((item, index) => (
         <button
           key={index}
-          className={`flex border-r border-l bg-white items-center px-8 py-6 text-sm text-gray-700 hover:bg-[#00856F] hover:text-white focus:outline-none transition-all duration-500`}
+          className={`flex border-r border-l   bg-white items-center px-8 py-6 text-sm text-gray-700 hover:bg-[#00856F] hover:text-white focus:outline-none transition-all duration-500`}
         >
           <item.icon className="w-5 h-5 mr-2 " />
           {item.label}
