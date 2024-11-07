@@ -347,50 +347,60 @@ const SoftwareComponent = () => {
   const WindowHeader = () => (
     <div className="flex w-full shadow mx-auto sm:mt-0 mt-2  items-center justify-between bg-white p-4 border-l-8 border-[#00856F]">
       <h2 className="text-xl font-semibold">Windows</h2>
-      <button className="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
+      <button className="px-3 py-1 text-sm text-gray-600 border  border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
         View All
       </button>
     </div>
   );
 
   const SoftwareItem = ({ software }) => (
-    <div className="flex gap-8">
-      <div className="flex w-full mt-4 sm:mt-5 shadow bg-white p-4">
-        <div className="mr-3 text-2xl relative">
-          <img src={software.icon} className="h-14 w-14 rounded-md" alt="" />
-          <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
-            {software.tag && <p>{software.latest}</p>}
-          </div>
+    <div className="flex  sm:flex-row gap-4 sm:gap-8">
+      <div className=" sm:flex flex w-full  sm:w-full mt-4  h-full sm:h-24 shadow bg-white p-4 ">
+        <div className="relative   flex-shrink-0 mr-3">
+          <img
+            src={software.icon}
+            className="h-12 sm:h-full  rounded-md"
+            alt=""
+          />
+          {software.tag && (
+            <div className="bg-[gold]  absolute top-0 left-[-35px] rounded-md text-center  px-1  text-[14px] text-white py-0">
+              {software.latest}
+            </div>
+          )}
         </div>
-        <div className="flex flex-grow">
-          <div>
-            <h3 className="text-[#2B373A]">{software.name}</h3>
-            <p className="text-[13px]">{software.description}</p>
-            <p className="text-[#00856F] text-[12px] font-semibold">
+
+        <div className="flex  flex-grow  flex-col flex-shrink sm:flex-row">
+          <div className="w-full">
+            <h3 className="text-[#2B373A] text-lg font-semibold">
+              {software.name}
+            </h3>
+            <p className="text-[13px] text-gray-600">{software.description}</p>
+            <p className="text-[#00856F] text-[12px] font-semibold mt-1">
               {software.category}
             </p>
           </div>
-        </div>
 
-        <div className="border-s px-5 py-2">
-          <div className="flex items-center gap-2">
-            <FaWindows className="text-[#02ADEC] text-2xl" /> {software.os}
+          <div className="sm:border-l  sm:px-5 py-2">
+            <div className="flex items-center gap-2 text-[14px]">
+              <FaWindows className="text-[#02ADEC] text-xl" />
+              <span>{software.os}</span>
+            </div>
+            <div className="flex-col sm:flex-row items-center gap-1 mt-2 text-[13px] text-gray-600">
+              <FaCloudDownloadAlt className="text-[#716d6d]" />
+              {software.downloads}
+            </div>
           </div>
-          <div className="flex gap-1 items-center mt-2 text-[13px]">
-            <FaCloudDownloadAlt className="text-[#716d6d] items-center" />
-            {software.downloads}
-          </div>
-        </div>
 
-        <div className="border-s px-5 py-2">
-          <div className="flex items-center gap-2">{software.rep}</div>
-          <div className="flex items-center mt-2 text-[13px]">
-            <RatingStars rating={software.rating} />
+          <div className="sm:border-l sm:px-5 py-2 text-center sm:text-left">
+            <div className="flex items-center gap-2">{software.rep}</div>
+            <div className="mt-2">
+              <RatingStars rating={software.rating} />
+            </div>
           </div>
-        </div>
 
-        <div className="border-s text-center text-xl font-semibold px-5 py-4">
-          {software.size}
+          <div className="sm:border-l px-1 sm:px-5  py-4 text-xl font-semibold text-gray-800 ">
+            {software.size}
+          </div>
         </div>
       </div>
     </div>
@@ -417,17 +427,17 @@ const SoftwareComponent = () => {
   );
 
   const MacItems = ({ mac }) => (
-    <div className="flex gap-8">
-      <div className="flex w-full mt-5 shadow bg-white p-4">
-        <div className="mr-3 text-2xl relative">
-          <img src={mac.icon} className="h-14 w-14 rounded-md" alt="" />
-          <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
+    <div className="flex  sm:flex-row gap-4 sm:gap-8">
+      <div className="sm:flex flex w-full  sm:w-full mt-4  h-full sm:h-24 shadow bg-white p-4">
+        <div className="relative   flex-shrink-0 mr-3">
+          <img src={mac.icon} className="h-12 sm:h-full  rounded-md" alt="" />
+          <div className="bg-[gold] absolute top-0  left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
             {mac.tag && <p>{mac.latest}</p>}
           </div>
         </div>
-        <div className="flex flex-grow">
-          <div>
-            <h3 className="text-[#2B373A]">{mac.name}</h3>
+        <div className="flex  flex-grow  flex-col flex-shrink sm:flex-row">
+          <div className="flex flex-col ">
+            <h3 className="text-[#2B373A] text-lg font-semibold">{mac.name}</h3>
             <p className="text-[13px]">{mac.description}</p>
             <p className="text-[#00856F] text-[12px] font-semibold">
               {mac.category}
@@ -435,8 +445,8 @@ const SoftwareComponent = () => {
           </div>
         </div>
 
-        <div className="border-s px-10 py-2">
-          <div className="flex items-center gap-2">
+        <div className="sm:border-l  flex flex-col sm:px-5 py-2">
+          <div className="flex  items-center gap-2 text-[14px]">
             <GrApple className="text-[#02ADEC] text-2xl" /> {mac.os}
           </div>
           <div className="flex gap-1 items-center mt-2 text-[13px]">
@@ -444,16 +454,17 @@ const SoftwareComponent = () => {
             {mac.downloads}
           </div>
         </div>
-
-        <div className="border-s px-5 py-2">
-          <div className="flex items-center gap-2">{mac.rep}</div>
-          <div className="flex items-center mt-2 text-[13px]">
-            <RatingStars rating={mac.rating} />
+        <div className="flex flex-col sm:flex-row">
+          <div className="border-0 sm:border-s  px-5 py-2">
+            <div className="flex items-center gap-2">{mac.rep}</div>
+            <div className="flex items-center mt-2 text-[13px]">
+              <RatingStars rating={mac.rating} />
+            </div>
           </div>
-        </div>
 
-        <div className="border-s text-center text-xl font-semibold px-5 py-4">
-          {mac.size}
+          <div className="border-0  sm:border-s text-center text-xl font-semibold px-5 py-4">
+            {mac.size}
+          </div>
         </div>
       </div>
     </div>
@@ -463,7 +474,7 @@ const SoftwareComponent = () => {
     return (
       <div className="shadow flex my-9 w-full mx-auto sm:mx-0 items-center justify-between bg-white p-4 border-l-8 border-[#00856F]">
         <h2 className="text-xl font-semibold">Android</h2>
-        <button className="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
+        <button className="px-3 py-1 text-sm bottom-4 text-gray-600 border border-gray-300 rounded hover:bg-[#00856F] hover:text-white">
           View All
         </button>
       </div>
@@ -488,17 +499,17 @@ const SoftwareComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 px-7 border-s">
+        <div className="flex items-center gap-2 px-7 border-0 sm:border-s">
           <DiAndroid className="text-[#02ADEC] text-2xl" /> {android.os}
         </div>
-        <div className="border-s px-5 py-2">
+        <div className="border-0 sm:border-s px-5 py-2">
           <div className="flex items-center gap-2">{android.rep}</div>
           <div className="flex items-center mt-2 text-[13px]">
             <RatingStars rating={android.rating} />
           </div>
         </div>
 
-        <div className="border-s text-center text-xl font-semibold px-5 py-4">
+        <div className="border-0 sm:border-s text-center text-xl font-semibold px-5 py-4">
           {android.size}
         </div>
       </div>
@@ -506,34 +517,43 @@ const SoftwareComponent = () => {
   );
 
   return (
-    <div className="space-y-4 mb-40 mx-auto ">
-      <div className="flex gap-5 relative">
-        <div className="w-[100%] sm:[70%] ">
+    <div className="container mx-auto px-4 space-y-4 mb-14 sm:mb-40">
+      <div className="flex flex-col lg:flex-row  gap-5">
+        <div className="w-full lg:w-2/3 ">
           <WindowHeader />
-          {softwareData.map((software, index) => (
-            <SoftwareItem key={index} software={software} />
-          ))}
 
-          <Mac />
-          {MacData.map((mac, index) => (
-            <MacItems key={index} mac={mac} />
-          ))}
+          <div className="space-y-4">
+            {softwareData.map((software, index) => (
+              <SoftwareItem key={index} software={software} />
+            ))}
+          </div>
 
-          {android()}
-          {anriodes.map((android, index) => (
-            <AndroidItems key={index} android={android} />
-          ))}
+          <div className="space-y-4">
+            <Mac />
+            {MacData.map((mac, index) => (
+              <MacItems key={index} mac={mac} />
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            {android()}
+            {anriodes.map((android, index) => (
+              <AndroidItems key={index} android={android} />
+            ))}
+          </div>
         </div>
 
-        <div className=" h-[900px] sticky top-2 rounded-lg shadow  bg-white w-[30%] p-6">
-          <div className="top  m-6 text-2xl text-[#424242] font-semibold">
-            Pc Games
-          </div>
-          <hr className="mt-3" />
-          <div className="mt-4 space-y-4">
-            {games.map((game, index) => (
-              <GameItem key={index} game={game} />
-            ))}
+        <div className="w-[100%] lg:w-[30%] mt-0 lg:sm:9">
+          <div className="sticky top-8 rounded-lg shadow bg-white p-6">
+            <div className="text-2xl text-[#424242] font-semibold mb-6">
+              Pc Games
+            </div>
+            <hr className="mb-4" />
+            <div className="space-y-4">
+              {games.map((game, index) => (
+                <GameItem key={index} game={game} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

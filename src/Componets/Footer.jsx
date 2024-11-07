@@ -33,7 +33,7 @@ const Footer = () => {
   const policyLinks = ["Terms", "Cookies Policy", "Privacy Policy"];
 
   return (
-    <footer className="bg-[#1E2024]  relative h-96  text-[#D9D9D9] text-sm pt-8 ">
+    <footer className="bg-[#1E2024]  relative h-[37rem]  text-[#D9D9D9] text-sm pt-8 ">
       <div className="mx-auto bg-[#1E2024] flex pt-10  max-w-6xl flex-wrap gap-8">
         {footerSections.map((section, index) => (
           <div key={index} className="w-full sm:w-[45%] lg:w-[22%] mb-4">
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div className="flex px-11 mt-3 gap-4">
+      <div className="flex px-11 py-9 bg-[#1E2024]   gap-4">
         {policyLinks.map((policy, index) => (
           <a key={index} href="#" className="hover:text-white">
             {policy}
@@ -59,7 +59,7 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="mx-auto absolute bottom-0 w-full   py-4  flex   mt-10  px-14 bg-[#21282A]   border-gray-700 ">
+      <div className="mx-auto absolute bottom-0 w-full   py-4  flex     px-14 bg-[#21282A]   border-gray-700 ">
         <p className="text-sm  ">©FileCR - All Rights Reserved 2024</p>
       </div>
     </footer>
