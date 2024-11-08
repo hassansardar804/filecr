@@ -354,51 +354,54 @@ const SoftwareComponent = () => {
   );
 
   const SoftwareItem = ({ software }) => (
-    <div className="flex  sm:flex-row gap-4 sm:gap-8">
-      <div className=" sm:flex flex w-full  sm:w-full mt-4  h-full sm:h-24 shadow bg-white p-4 ">
-        <div className="relative   flex-shrink-0 mr-3">
+    <div className="flex   sm:flex-row gap-4  sm:gap-8">
+      <div className=" sm:flex-row flex flex-col   w-full    mt-4  h-full sm:h-24 shadow bg-white p-4 ">
+        <div className="relative flex sm:w-[50%]  w-full   ">
           <img
             src={software.icon}
-            className="h-12 sm:h-full  rounded-md"
+            className="h-12 sm:h-full w-14  rounded-md"
             alt=""
           />
           {software.tag && (
-            <div className="bg-[gold]  absolute top-0 left-[-35px] rounded-md text-center  px-1  text-[14px] text-white py-0">
+            <div className="bg-[gold]   absolute top-0 left-[-35px] rounded-md text-center  px-1  text-[14px] text-white py-0">
               {software.latest}
             </div>
           )}
-        </div>
 
-        <div className="flex  flex-grow  flex-col flex-shrink sm:flex-row">
-          <div className="w-full">
-            <h3 className="text-[#2B373A] text-lg font-semibold">
-              {software.name}
-            </h3>
-            <p className="text-[13px] text-gray-600">{software.description}</p>
-            <p className="text-[#00856F] text-[12px] font-semibold mt-1">
-              {software.category}
-            </p>
+          <div className="flex ms-3 flex-col  sm:flex-row ">
+            <div className="w-full">
+              <h3 className="text-[#2B373A] truncate w-[75%]    text-lg font-semibold">
+                {software.name}
+              </h3>
+              <p className="text-[13px] h-4 truncate ... w-[70%]  my-1 text-gray-600 ">
+                {software.description}
+              </p>
+              <p className="text-[#00856F] text-[12px] font-semibold ">
+                {software.category}
+              </p>
+            </div>
           </div>
-
-          <div className="sm:border-l  sm:px-5 py-2">
-            <div className="flex items-center gap-2 text-[14px]">
+        </div>
+        <div className="flex-col flex w-ful sm:flex-row sm:w-[50%] ">
+          <div className="sm:border-l  flex flex-row sm:flex-col    sm:px-5 w-1/3 ">
+            <div className=" ms-2 gap-2  flex  sm:flex-row  py-2 text-[14px]">
               <FaWindows className="text-[#02ADEC] text-xl" />
               <span>{software.os}</span>
             </div>
-            <div className="flex-col sm:flex-row items-center gap-1 mt-2 text-[13px] text-gray-600">
+            <div className="flex  sm:flex-row items-center gap-2 mb-1  text-[13px] text-gray-900 ">
               <FaCloudDownloadAlt className="text-[#716d6d]" />
               {software.downloads}
             </div>
           </div>
 
-          <div className="sm:border-l sm:px-5 py-2 text-center sm:text-left">
+          <div className="sm:border-l sm:px-5 py-2 text-center justify-around flex flex-row sm:flex-col sm:text-left w-1/3">
             <div className="flex items-center gap-2">{software.rep}</div>
             <div className="mt-2">
               <RatingStars rating={software.rating} />
             </div>
           </div>
 
-          <div className="sm:border-l px-1 sm:px-5  py-4 text-xl font-semibold text-gray-800 ">
+          <div className="sm:border-l px-1 sm:px-8  text-center py-4 text-xl font-semibold text-gray-800 w-1/3">
             {software.size}
           </div>
         </div>
@@ -427,42 +430,52 @@ const SoftwareComponent = () => {
   );
 
   const MacItems = ({ mac }) => (
-    <div className="flex  sm:flex-row gap-4 sm:gap-8">
-      <div className="sm:flex flex w-full  sm:w-full mt-4  h-full sm:h-24 shadow bg-white p-4">
-        <div className="relative   flex-shrink-0 mr-3">
-          <img src={mac.icon} className="h-12 sm:h-full  rounded-md" alt="" />
-          <div className="bg-[gold] absolute top-0  left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
-            {mac.tag && <p>{mac.latest}</p>}
+    <div className="flex   sm:flex-row gap-4  sm:gap-8">
+      <div className=" sm:flex-row flex flex-col   w-full    mt-4  h-full sm:h-24 shadow bg-white p-4 ">
+        <div className="relative flex sm:w-[50%] w-full ">
+          <div className="h-14 w-14 overflow-hidden rounded-md">
+            <img src={mac.icon} className="h-full w-full object-cover" alt="" />
           </div>
-        </div>
-        <div className="flex  flex-grow  flex-col flex-shrink sm:flex-row">
-          <div className="flex flex-col ">
-            <h3 className="text-[#2B373A] text-lg font-semibold">{mac.name}</h3>
-            <p className="text-[13px]">{mac.description}</p>
-            <p className="text-[#00856F] text-[12px] font-semibold">
-              {mac.category}
-            </p>
-          </div>
-        </div>
+          {mac.tag && (
+            <div className="bg-[gold]  absolute top-0 left-[-35px]  text-center  px-1  text-[14px] text-white py-0">
+              {mac.latest}
+            </div>
+          )}
 
-        <div className="sm:border-l  flex flex-col sm:px-5 py-2">
-          <div className="flex  items-center gap-2 text-[14px]">
-            <GrApple className="text-[#02ADEC] text-2xl" /> {mac.os}
-          </div>
-          <div className="flex gap-1 items-center mt-2 text-[13px]">
-            <FaCloudDownloadAlt className="text-[#716d6d] items-center" />
-            {mac.downloads}
+          <div className="flex   ms-3  flex-col  sm:flex-row ">
+            <div className="w-full">
+              <h3 className="text-[#2B373A] truncate w-[70%]   text-lg font-semibold">
+                {mac.name}
+              </h3>
+              <p className="text-[13px] h-4 truncate ... w-[50%]   text-gray-600 ">
+                {mac.description}
+              </p>
+              <p className="text-[#00856F] text-[12px] font-semibold ">
+                {mac.category}
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row">
-          <div className="border-0 sm:border-s  px-5 py-2">
+        <div className="flex-col flex w-ful sm:flex-row sm:w-[50%]  ">
+          <div className="sm:border-l flex flex-row sm:flex-col  justify-around sm:px-5  ">
+            <div className="  gap-2 flex  py-2 text-[14px]">
+              <GrApple className="text-[#02ADEC] text-xl" />
+              <span>{mac.os}</span>
+            </div>
+            <div className="flex  sm:flex-row items-center gap-2 mb-1  text-[13px] text-gray-900 ">
+              <FaCloudDownloadAlt className="text-[#716d6d]" />
+              {mac.downloads}
+            </div>
+          </div>
+
+          <div className="sm:border-l  w-full px-5 sm:px-5 py-2 text-center justify-around flex flex-row sm:flex-col sm:text-left ">
             <div className="flex items-center gap-2">{mac.rep}</div>
-            <div className="flex items-center mt-2 text-[13px]">
+            <div className="mt-2">
               <RatingStars rating={mac.rating} />
             </div>
           </div>
 
-          <div className="border-0  sm:border-s text-center text-xl font-semibold px-5 py-4">
+          <div className="sm:border-l   text-center w-full py-4 text-xl font-semibold text-gray-800 ">
             {mac.size}
           </div>
         </div>
@@ -482,35 +495,56 @@ const SoftwareComponent = () => {
   };
 
   const AndroidItems = ({ android }) => (
-    <div className="flex gap-8 ">
-      <div className="flex w-full mt-5 shadow bg-white p-4">
-        <div className="mr-3 text-2xl relative ">
-          <img src={android.icon} className="h-14 w-14 rounded-md" alt="" />
-          <div className="bg-[gold] absolute top-0 left-[-25px] rounded-md text-center w-12 h-auto text-[14px] text-white">
-            {android.tag && <p>{android.latest}</p>}
-          </div>
-        </div>
-        <div className="flex flex-grow">
-          <div>
-            <h3 className="text-[#2B373A]">{android.name}</h3>
-            <p className="text-[13px]">{android.description}</p>
-            <p className="text-[#00856F] text-[12px] font-semibold">
-              {android.category}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-2 px-7 border-0 sm:border-s">
-          <DiAndroid className="text-[#02ADEC] text-2xl" /> {android.os}
-        </div>
-        <div className="border-0 sm:border-s px-5 py-2">
-          <div className="flex items-center gap-2">{android.rep}</div>
-          <div className="flex items-center mt-2 text-[13px]">
-            <RatingStars rating={android.rating} />
-          </div>
-        </div>
+    <div className="flex   sm:flex-row gap-4  sm:gap-8">
+      <div className=" sm:flex-row flex flex-col   w-full    mt-4  h-full sm:h-24 shadow bg-white p-4 ">
+        <div className="relative flex sm:w-[50%]  w-full   ">
+          <img
+            src={android.icon}
+            className="h-12 sm:h-full w-16   rounded-md"
+            alt=""
+          />
+          {android.tag && (
+            <div className="bg-[gold]  absolute top-0 left-[-35px] rounded-md text-center  px-1  text-[14px] text-white py-0">
+              {android.latest}
+            </div>
+          )}
 
-        <div className="border-0 sm:border-s text-center text-xl font-semibold px-5 py-4">
-          {android.size}
+          <div className="flex   ms-3  flex-col  sm:flex-row ">
+            <div className="w-full">
+              <h3 className="text-[#2B373A] truncate ... w-[70%] sm:truncate ...w-96   text-lg font-semibold">
+                {android.name}
+              </h3>
+              <p className="text-[13px] h-4 truncate ... w-[50%]   text-gray-600 ">
+                {android.description}
+              </p>
+              <p className="text-[#00856F] text-[12px] font-semibold ">
+                {android.category}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex-col flex w-ful sm:flex-row sm:w-[50%]  ">
+          <div className="sm:border-l flex flex-row sm:flex-col  justify-around sm:px-5  ">
+            <div className=" ms-2 gap-2 flex  py-2 text-[14px]">
+              <FaWindows className="text-[#02ADEC] text-xl" />
+              <span>{android.os}</span>
+            </div>
+            <div className="flex  sm:flex-row items-center gap-2 mb-1  text-[13px] text-gray-900 ">
+              <FaCloudDownloadAlt className="text-[#716d6d]" />
+              {android.downloads}
+            </div>
+          </div>
+
+          <div className="sm:border-l sm:px-5 py-2 text-center justify-around flex flex-row sm:flex-col sm:text-left ">
+            <div className="flex items-center gap-2">{android.rep}</div>
+            <div className="mt-2">
+              <RatingStars rating={android.rating} />
+            </div>
+          </div>
+
+          <div className="sm:border-l px-1 sm:px-8  text-center py-4 text-xl font-semibold text-gray-800 ">
+            {android.size}
+          </div>
         </div>
       </div>
     </div>
